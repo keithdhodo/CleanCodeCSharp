@@ -4,34 +4,52 @@ namespace Chapter02
 {
     public class GuessStatistics
     {
+        public string Number { get; private set; }
+        public string Verb { get; private set; }
+        public string PluralModifier { get; private set; }
+
         public string PrintGuessStatistics(char candidate, int count)
         {
-            string number;
-            string verb;
-            string pluralModifier;
+            CreatePluralDependentMessageParts(count);
 
+            return $"There {Verb} {Number} {candidate}{PluralModifier}";
+        }
+
+        private void CreatePluralDependentMessageParts(int count)
+        {
             if (count == 0)
             {
-                number = "no";
-                verb = "are";
-                pluralModifier = "s";
+                ThereAreNoLetters();
             }
             else if (count == 1)
             {
-                number = "1";
-                verb = "is";
-                pluralModifier = string.Empty;
+                ThereIsOneLetter();
             }
             else
             {
-                number = count.ToString();
-                verb = "are";
-                pluralModifier = "s";
+                ThereAreManyLetters(count);
             }
+        }
 
-            string guessMessage = $"There {verb} {number} {candidate}{pluralModifier}";
+        private void ThereAreManyLetters(int count)
+        {
+            Number = count.ToString();
+            Verb = "are";
+            PluralModifier = "s";
+        }
 
-            return guessMessage;
+        private void ThereIsOneLetter()
+        {
+            Number = "1";
+            Verb = "is";
+            PluralModifier = string.Empty;
+        }
+
+        private void ThereAreNoLetters()
+        {
+            Number = "no";
+            Verb = "are";
+            PluralModifier = "s";
         }
     }
 }
