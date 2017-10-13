@@ -1,10 +1,20 @@
-﻿using Chapter03.Enums;
-
-namespace Chapter03
+﻿namespace Chapter03.Models
 {
-    public class Employee
+    public class Employee : IEmployee
     {
-        public EmployeeType Type { get; set; }
-        public decimal HourlyRate { get; set; }
+        public virtual Money CalculatePay(Employee employee)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual void DeliverPay(Money pay)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual bool IsPayday()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
