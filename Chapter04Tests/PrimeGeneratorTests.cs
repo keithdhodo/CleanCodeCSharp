@@ -2,19 +2,18 @@ using Chapter04;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
-using System.Numerics;
 
 namespace Chapter04Tests
 {
     [TestClass]
-    public class SieveOfEratosthenesTests
+    public class PrimeGeneratorTests
     {
-        public SieveOfEratosthenes Sieve { get; set; }
+        public PrimeGenerator Sieve { get; set; }
 
         [TestInitialize]
         public void TestInitialize()
         {
-            Sieve = new SieveOfEratosthenes();
+            Sieve = new PrimeGenerator();
         }
 
         [TestMethod]
