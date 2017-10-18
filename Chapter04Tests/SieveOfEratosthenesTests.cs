@@ -1,37 +1,40 @@
-using Chapter04;
+﻿using Chapter04;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Chapter04Tests
 {
     [TestClass]
-    public class PrimeGeneratorTests
+    public class SieveOfEratosthenesTests
     {
-        public PrimeGenerator Sieve { get; set; }
+        public SieveOfEratosthenes Sieve { get; set; }
 
         [TestInitialize]
         public void TestInitialize()
         {
-            Sieve = new PrimeGenerator();
+            Sieve = new SieveOfEratosthenes();
         }
 
         [TestMethod]
-        public void PrimeGenerator_GeneratePrimes_One()
+        public void SieveOfEratosthenes_GeneratePrimes_One()
         {
             var actual = Sieve.GeneratePrimes(1);
             CollectionAssert.AreEqual(new List<int>(), actual);
         }
 
         [TestMethod]
-        public void PrimeGenerator_GeneratePrimes_Two()
+        public void SieveOfEratosthenes_GeneratePrimes_Two()
         {
             var actual = Sieve.GeneratePrimes(2);
             CollectionAssert.AreEqual(new List<int>() { 2 }, actual);
         }
 
         [TestMethod]
-        public void PrimeGenerator_GeneratePrimes_OneHundred()
+        public void SieveOfEratosthenes_GeneratePrimes_OneHundred()
         {
             var actual = Sieve.GeneratePrimes((int)Math.Pow(10, 2));
 
@@ -39,7 +42,7 @@ namespace Chapter04Tests
         }
 
         [TestMethod]
-        public void PrimeGenerator_GeneratePrimes_OneThousand()
+        public void SieveOfEratosthenes_GeneratePrimes_OneThousand()
         {
             var actual = Sieve.GeneratePrimes((int)Math.Pow(10, 3));
 
