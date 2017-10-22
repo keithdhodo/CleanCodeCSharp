@@ -7,11 +7,11 @@ namespace Chapter06.Models
     {
         public double X { get; private set; }
         public double Y { get; private set; }
+        public double R { get; private set; }
+        public double Theta { get; private set; }
 
-        public Point(double x, double y)
+        public Point()
         {
-            X = x;
-            Y = y;
         }
 
         public void SetCartesian(double x, double y)
@@ -22,8 +22,8 @@ namespace Chapter06.Models
 
         public void SetPolar(double r, double theta)
         {
-            X = r;
-            Y = theta;
+            R = r;
+            Theta = theta;
         }
     }
 }
